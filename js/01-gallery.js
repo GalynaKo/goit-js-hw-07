@@ -6,15 +6,6 @@ const galleryEl = document.querySelector("div");
 //Реализация делегирования на div.gallery и получение url большого изображения.
 galleryEl.addEventListener("click", onClickCard);
 
-function onClickCard(e) {
-  const tach = e.target.nodeName;
-  //if filtro della meta del tach click
-  if (tach !== "IMG") {
-    return;
-  }
-  console.log(e.target.dataset.img);
-}
-
 //Создание и рендер разметки по массиву данных galleryItems и предоставленному шаблону элемента галереи.
 
 const createCards = galleryItems.map(cardEl).join("");
@@ -36,22 +27,24 @@ galleryEl.insertAdjacentHTML("afterbegin", createCards);
 //console.log(galleryEl);
 console.log(galleryItems);
 
-function onClickShowModal(e) {
+function onClickCard(e) {
   e.preventDefault();
-
-  if (e.target.nodeName !== "IMG") {
+  const tach = e.target.nodeName;
+  //if filtro della meta del tach click
+  if (tach !== "IMG") {
     return;
   }
+  console.log(e.target.dataset.img);
+
   //Подключение скрипта и стилей библиотеки модального окна basicLightbox.
   const instance = basicLightbox.create(
     `
-  <div class="modal">
-      <img
-          class="modal__image"
-          src="${e.target.dataset.source}"
-        />
-   </div>
-   `,
+          <div class="modal">
+             <img
+                 class="modal__image"
+                  src="${e.target.dataset.source}"
+                />
+          </div> `,
     {
       onShow: (instance) => {
         window.addEventListener("keydown", onEscPress);
@@ -73,14 +66,11 @@ function onClickShowModal(e) {
 }
 
 ///Открытие модального окна по клику на элементе галереи. Для этого ознакомься с документацией и примерами.
+
 //Замена значения атрибута src элемента <img> в модальном окне перед открытием.
 //Используй готовую разметку модального окна с изображением из примеров библиотеки basicLightbox.
 
 //Обрати внимание на то, что изображение обернуто в ссылку, а значит при клике по умолчанию пользователь будет
 //перенаправлен на другую страницу.Запрети это поведение по умолчанию.
-
-//Закрытие с клавиатуры
-//ВНИМАНИЕ
-//Этот функционал не обязателен при сдаче задания, но будет хорошей дополнительной практикой.
 
 //Добавь закрытие модального окна по нажатию клавиши Escape. Сделай так, чтобы прослушивание клавиатуры было только пока открыто модальное окно. У библиотеки basicLightbox есть метод для программного закрытия модального окна.//
