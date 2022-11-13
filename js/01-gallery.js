@@ -1,5 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
+
 //trovato gallery
 const galleryEl = document.querySelector("div");
 

@@ -1,6 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
-//import SimpleLightbox from "simplelightbox";
-// Change code below this line
+
 console.log(galleryItems);
 
 const galleryEl = document.querySelector(".gallery");
@@ -17,7 +16,9 @@ function imageEl({ preview, original, description }) {
   `;
 }
 galleryEl.innerHTML = ("afterbegin", createCards);
+//galleryEl.addEventListener(createCards);
 
+console.log(galleryEl);
 //Посмотри в документации секцию «Options» и добавь отображение подписей к
 //изображениям из атрибута alt.Пусть подпись будет снизу и появляется
 //через 250 миллисекунд после открытия изображения.
