@@ -24,6 +24,6 @@ console.log(galleryEl);
 //через 250 миллисекунд после открытия изображения.
 const moove = new SimpleLightbox("ul.gallery a", {
   captions: true,
-  captionsDate: "alt",
+  captionsData: "alt",
   captionsDelay: 250,
 });
